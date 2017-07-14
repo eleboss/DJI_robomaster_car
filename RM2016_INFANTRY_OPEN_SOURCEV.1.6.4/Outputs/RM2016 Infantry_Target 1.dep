@@ -1,5 +1,5 @@
 Dependencies for Project 'RM2016 Infantry', Target 'Target 1': (DO NOT MODIFY !)
-F (.\User\main.c)(0x578F6306)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\main.o --omf_browse .\outputs\main.crf --depend .\outputs\main.d)
+F (.\User\main.c)(0x5966D8FC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\main.o --omf_browse .\outputs\main.crf --depend .\outputs\main.d)
 I (User\main.h)(0x572C0C40)
 I (.\RmLib\common.h)(0x572B4E1E)
 I (.\STLibraries\stm32f4xx.h)(0x55828B5A)
@@ -53,7 +53,7 @@ I (.\RmLib\LostCounter.h)(0x571A1CD4)
 I (.\APP\RemoteTask.h)(0x572C17BA)
 I (.\APP\IOTask.h)(0x572CA10A)
 I (.\Protocol\protocal.h)(0x572CA4D6)
-F (.\BSP\bsp.c)(0x578F6288)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\bsp.o --omf_browse .\outputs\bsp.crf --depend .\outputs\bsp.d)
+F (.\BSP\bsp.c)(0x5966D8FC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\bsp.o --omf_browse .\outputs\bsp.crf --depend .\outputs\bsp.d)
 I (.\User\main.h)(0x572C0C40)
 I (.\RmLib\common.h)(0x572B4E1E)
 I (.\STLibraries\stm32f4xx.h)(0x55828B5A)
@@ -497,7 +497,7 @@ I (.\RmLib\LostCounter.h)(0x571A1CD4)
 I (.\APP\RemoteTask.h)(0x572C17BA)
 I (.\APP\IOTask.h)(0x572CA10A)
 I (.\Protocol\protocal.h)(0x572CA4D6)
-F (.\BSP\usart1.c)(0x5763E5B4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\usart1.o --omf_browse .\outputs\usart1.crf --depend .\outputs\usart1.d)
+F (.\BSP\usart1.c)(0x5966E02A)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\usart1.o --omf_browse .\outputs\usart1.crf --depend .\outputs\usart1.d)
 I (.\RmLib\FIFO.h)(0x57160360)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -607,7 +607,7 @@ I (.\APP\IOTask.h)(0x572CA10A)
 I (.\Protocol\protocal.h)(0x572CA4D6)
 I (.\RmLib\FIFO.h)(0x57160360)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
-F (.\BSP\encoder.c)(0x572C0B6C)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\encoder.o --omf_browse .\outputs\encoder.crf --depend .\outputs\encoder.d)
+F (.\BSP\encoder.c)(0x5966D8FC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\BSP -I .\APP -I .\STLibraries -I .\User -I .\MPU6050 -I .\Protocol -I .\FIFO -I .\ -I .\Debug -I .\RmLib-I.\RTE\_Target_1-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Device\Include"-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F405xx -DUSE_STDPERIPH_DRIVER -DSTM32F4XX-o .\outputs\encoder.o --omf_browse .\outputs\encoder.crf --depend .\outputs\encoder.d)
 I (.\User\main.h)(0x572C0C40)
 I (.\RmLib\common.h)(0x572B4E1E)
 I (.\STLibraries\stm32f4xx.h)(0x55828B5A)

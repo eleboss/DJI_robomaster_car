@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'RM2016 Infantry' 
- * Target:  'Target 1' 
+ * Project: 'STM32F103C' 
+ * Target:  'MotorDriver' 
  */
 
 #ifndef RTE_COMPONENTS_H

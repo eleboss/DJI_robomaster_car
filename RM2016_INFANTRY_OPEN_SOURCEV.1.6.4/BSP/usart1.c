@@ -107,7 +107,7 @@ void USART1_IRQHandler(void)
             if(this_time_rx_len == RC_FRAME_LENGTH)
 			{
 				RemoteDataPrcess(_USART1_DMA_RX_BUF[0]);
-                LostCounterFeed(GetLostCounter(LOST_COUNTER_INDEX_RC));
+        LostCounterFeed(GetLostCounter(LOST_COUNTER_INDEX_RC));
 			}
             
 //			if(this_time_rx_len == RC_FRAME_LENGTH)
