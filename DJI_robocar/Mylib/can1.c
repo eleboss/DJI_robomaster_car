@@ -3,8 +3,8 @@ extern AUTOCONTROL AutoControl;
 extern int test1, test2;
 extern int test3, test4;
 
-/*----CAN1_TX-----PA12----*/
-/*----CAN1_RX-----PA11----*/
+/*----CAN1_TX-----PD1----*/
+/*----CAN1_RX-----PD0----*/
 
 void CAN1_Configuration(void)
 {
@@ -13,15 +13,15 @@ void CAN1_Configuration(void)
 	GPIO_InitTypeDef       gpio;
 	NVIC_InitTypeDef       nvic;
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_CAN1, ENABLE);
 
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource11, GPIO_AF_CAN1);
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource12, GPIO_AF_CAN1);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_CAN1);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_CAN1);
 
-	gpio.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12;
+	gpio.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_0;
 	gpio.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_Init(GPIOA, &gpio);
+	GPIO_Init(GPIOD, &gpio);
 	
 	nvic.NVIC_IRQChannel = CAN1_RX0_IRQn;
 	nvic.NVIC_IRQChannelPreemptionPriority = 0;

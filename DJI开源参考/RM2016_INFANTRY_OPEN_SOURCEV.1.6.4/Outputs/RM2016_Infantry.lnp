@@ -40,8 +40,8 @@
 ".\outputs\iotask.o"
 ".\outputs\controltask.o"
 ".\outputs\remotetask.o"
-".\outputs\canbustask.o"
 ".\outputs\supervisetask.o"
+".\outputs\canbustask.o"
 ".\RmLib\RMLib.lib"
 --library_type=microlib --strict --scatter ".\Outputs\RM2016_Infantry.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

@@ -27,6 +27,6 @@ typedef struct{
 	short Hall;//1~6
 }HG900MotorRecvmsg;
 
-void CAN2_Configuration(void);
-void CAN2MotorSpeedSet(int speed1,int speed2,int speed3,int speed4);
+void CAN1_Configuration(void);
+void CAN1MotorSpeedSet(int speed1,int speed2,int speed3,int speed4);
 #endif 

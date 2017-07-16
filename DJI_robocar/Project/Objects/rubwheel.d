@@ -21,8 +21,7 @@
 .\objects\rubwheel.o: ..\Libraries\stm32f4xx_usart.h
 .\objects\rubwheel.o: ..\Libraries\stm32f4xx_wwdg.h
 .\objects\rubwheel.o: ..\Libraries\misc.h
-.\objects\rubwheel.o: ..\Mylib\can2.h
-.\objects\rubwheel.o: ..\Mylib\can1.h
+.\objects\rubwheel.o: ..\Mylib\can.h
 .\objects\rubwheel.o: ..\Mylib\delay.h
 .\objects\rubwheel.o: ..\Mylib\usart1.h
 .\objects\rubwheel.o: ..\Mylib\usart2.h

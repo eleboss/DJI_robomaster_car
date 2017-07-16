@@ -21,8 +21,7 @@
 .\objects\move.o: ..\Libraries\stm32f4xx_usart.h
 .\objects\move.o: ..\Libraries\stm32f4xx_wwdg.h
 .\objects\move.o: ..\Libraries\misc.h
-.\objects\move.o: ..\Mylib\can2.h
-.\objects\move.o: ..\Mylib\can1.h
+.\objects\move.o: ..\Mylib\can.h
 .\objects\move.o: ..\Mylib\delay.h
 .\objects\move.o: ..\Mylib\usart1.h
 .\objects\move.o: ..\Mylib\usart2.h

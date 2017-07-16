@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Outputs\RM2016_Infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Outputs\RM2016_Infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Jul 13 10:53:57 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat Jul 15 18:15:34 2017
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -525,14 +525,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
 </UL>
 <P><STRONG><a name="[79]"></a>Quad_Encoder_Configuration</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, encoder.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Quad_Encoder_Configuration &rArr; TIM_EncoderInterfaceConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Quad_Encoder_Configuration &rArr; GPIO_PinAFConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_Init
 </UL>
@@ -1054,9 +1054,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_GetStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramByte
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_EraseSector
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_OB_Launch
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_OB_Launch
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_OB_UserConfig
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_OB_RDPConfig
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_OB_WRPConfig
@@ -1064,6 +1062,8 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramWord
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramDoubleWord
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_EraseAllSectors
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramByte
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_EraseSector
 </UL>
 
 <P><STRONG><a name="[d4]"></a>FLASH_EraseSector</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, stm32f4xx_flash.o(.text))
@@ -1176,7 +1176,7 @@ Global Symbols
 
 <P><STRONG><a name="[84]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Configuration
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MouseShootControl
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteShootControl
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_ReadBit
@@ -1189,7 +1189,7 @@ Global Symbols
 
 <P><STRONG><a name="[a1]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Laser_Configuration
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MouseShootControl
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteShootControl
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_ReadBit
@@ -1207,7 +1207,7 @@ Global Symbols
 
 <P><STRONG><a name="[aa]"></a>GPIO_ToggleBits</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
 </UL>
 
 <P><STRONG><a name="[87]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 70 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(.text))
@@ -1532,23 +1532,23 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ec]"></a>TIM_ICInit</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, stm32f4xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR><BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI3_Config
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI4_Config
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
 </UL>
 
 <P><STRONG><a name="[222]"></a>TIM_ICStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[f5]"></a>TIM_PWMIConfig</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, stm32f4xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR><BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 </UL>
 
 <P><STRONG><a name="[223]"></a>TIM_GetCapture1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
@@ -1613,9 +1613,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f8]"></a>TIM_TIxExternalClockConfig</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, stm32f4xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SelectInputTrigger
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR><BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SelectInputTrigger
 </UL>
 
 <P><STRONG><a name="[fa]"></a>TIM_ETRConfig</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, stm32f4xx_tim.o(.text), UNUSED)
@@ -2502,50 +2502,7 @@ Global Symbols
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
 </UL>
 
-<P><STRONG><a name="[166]"></a>GetEncoderBias</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, canbustask.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
-</UL>
-
-<P><STRONG><a name="[167]"></a>EncoderProcess</STRONG> (Thumb, 202 bytes, Stack size 16 bytes, canbustask.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EncoderProcess
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
-</UL>
-
-<P><STRONG><a name="[9b]"></a>CanReceiveMsgProcess</STRONG> (Thumb, 554 bytes, Stack size 32 bytes, canbustask.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CanReceiveMsgProcess &rArr; EncoderProcess
-</UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterFeed
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetLostCounter
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterOverflowCheck
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EncoderProcess
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetEncoderBias
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
-<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
-</UL>
-
-<P><STRONG><a name="[14c]"></a>Set_CM_Speed</STRONG> (Thumb, 92 bytes, Stack size 48 bytes, canbustask.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Set_CM_Speed &rArr; CAN_Transmit
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
-</UL>
-
-<P><STRONG><a name="[151]"></a>Set_Gimbal_Current</STRONG> (Thumb, 82 bytes, Stack size 40 bytes, canbustask.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Set_Gimbal_Current &rArr; CAN_Transmit
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetGimbalMotorOutput
-</UL>
-
-<P><STRONG><a name="[16a]"></a>LED_TOGGLE</STRONG> (Thumb, 214 bytes, Stack size 32 bytes, supervisetask.o(.text))
+<P><STRONG><a name="[166]"></a>LED_TOGGLE</STRONG> (Thumb, 214 bytes, Stack size 32 bytes, supervisetask.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_TOGGLE
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ToggleBits
@@ -2575,9 +2532,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterFeed
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetLostCounter
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterCount
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterOverflowCheck
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterOverflowCheck
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterCount
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_TOGGLE
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Lost_Error
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Is_AppParam_Calied
 </UL>
@@ -2606,6 +2563,49 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateFSM
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetGimbalMotorOutput
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
+</UL>
+
+<P><STRONG><a name="[169]"></a>GetEncoderBias</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, canbustask.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
+</UL>
+
+<P><STRONG><a name="[16a]"></a>EncoderProcess</STRONG> (Thumb, 202 bytes, Stack size 16 bytes, canbustask.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EncoderProcess
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
+</UL>
+
+<P><STRONG><a name="[9b]"></a>CanReceiveMsgProcess</STRONG> (Thumb, 554 bytes, Stack size 32 bytes, canbustask.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CanReceiveMsgProcess &rArr; EncoderProcess
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterFeed
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetLostCounter
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EncoderProcess
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetEncoderBias
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LostCounterOverflowCheck
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
+</UL>
+<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
+<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
+</UL>
+
+<P><STRONG><a name="[14c]"></a>Set_CM_Speed</STRONG> (Thumb, 92 bytes, Stack size 48 bytes, canbustask.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Set_CM_Speed &rArr; CAN_Transmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
+</UL>
+
+<P><STRONG><a name="[151]"></a>Set_Gimbal_Current</STRONG> (Thumb, 82 bytes, Stack size 40 bytes, canbustask.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Set_Gimbal_Current &rArr; CAN_Transmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetGimbalMotorOutput
 </UL>
 
 <P><STRONG><a name="[ca]"></a>FrameUnpack</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, protocal_parser.o(.text))
@@ -2826,11 +2826,11 @@ Global Symbols
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_IRQHandler
 </UL>
 
-<P><STRONG><a name="[16b]"></a>LostCounterCount</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, lostcounter.o(.text))
+<P><STRONG><a name="[168]"></a>LostCounterCount</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, lostcounter.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuperviseTask
 </UL>
 
-<P><STRONG><a name="[169]"></a>LostCounterOverflowCheck</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lostcounter.o(.text))
+<P><STRONG><a name="[167]"></a>LostCounterOverflowCheck</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lostcounter.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuperviseTask
 </UL>
@@ -2936,10 +2936,10 @@ Global Symbols
 <P><STRONG><a name="[149]"></a>__aeabi_dadd</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, dadd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
+<BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
@@ -3009,7 +3009,7 @@ Global Symbols
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Quaternion
 </UL>
 
-<P><STRONG><a name="[168]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
+<P><STRONG><a name="[16b]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2uiz
 </UL>
 <BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
@@ -3048,9 +3048,9 @@ Global Symbols
 <P><STRONG><a name="[268]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[184]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<BR><BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
 <P><STRONG><a name="[269]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
@@ -3074,16 +3074,16 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
 <P><STRONG><a name="[181]"></a>_double_epilogue</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
@@ -3093,8 +3093,8 @@ Global Symbols
 <P><STRONG><a name="[186]"></a>_dsqrt</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, dsqrt.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _dsqrt &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt

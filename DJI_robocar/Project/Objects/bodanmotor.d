@@ -21,8 +21,7 @@
 .\objects\bodanmotor.o: ..\Libraries\stm32f4xx_usart.h
 .\objects\bodanmotor.o: ..\Libraries\stm32f4xx_wwdg.h
 .\objects\bodanmotor.o: ..\Libraries\misc.h
-.\objects\bodanmotor.o: ..\Mylib\can2.h
-.\objects\bodanmotor.o: ..\Mylib\can1.h
+.\objects\bodanmotor.o: ..\Mylib\can.h
 .\objects\bodanmotor.o: ..\Mylib\delay.h
 .\objects\bodanmotor.o: ..\Mylib\usart1.h
 .\objects\bodanmotor.o: ..\Mylib\usart2.h

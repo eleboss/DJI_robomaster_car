@@ -21,8 +21,7 @@
 .\objects\led.o: ..\Libraries\stm32f4xx_usart.h
 .\objects\led.o: ..\Libraries\stm32f4xx_wwdg.h
 .\objects\led.o: ..\Libraries\misc.h
-.\objects\led.o: ..\Mylib\can2.h
-.\objects\led.o: ..\Mylib\can1.h
+.\objects\led.o: ..\Mylib\can.h
 .\objects\led.o: ..\Mylib\delay.h
 .\objects\led.o: ..\Mylib\usart1.h
 .\objects\led.o: ..\Mylib\usart2.h

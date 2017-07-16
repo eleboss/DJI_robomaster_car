@@ -2,9 +2,10 @@
 #define __MAIN_H__
 
 #include "stm32f4xx.h"
+#include "stm32f4xx_rcc.h"
+#include "stm32f4xx_gpio.h"
 
-#include "can2.h"
-#include "can1.h"
+#include "can.h"
 #include "delay.h"
 #include "usart1.h"
 #include "usart2.h"

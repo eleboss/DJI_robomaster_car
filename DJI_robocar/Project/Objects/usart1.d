@@ -21,8 +21,7 @@
 .\objects\usart1.o: ..\Libraries\stm32f4xx_usart.h
 .\objects\usart1.o: ..\Libraries\stm32f4xx_wwdg.h
 .\objects\usart1.o: ..\Libraries\misc.h
-.\objects\usart1.o: ..\Mylib\can2.h
-.\objects\usart1.o: ..\Mylib\can1.h
+.\objects\usart1.o: ..\Mylib\can.h
 .\objects\usart1.o: ..\Mylib\delay.h
 .\objects\usart1.o: ..\Mylib\usart1.h
 .\objects\usart1.o: ..\Mylib\usart2.h
