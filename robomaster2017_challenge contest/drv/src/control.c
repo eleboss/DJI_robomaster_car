@@ -9,11 +9,19 @@ void PIDInit_Speed(PID *P)
 	P->SetPoint = 0.0f;
 }
 
+//void PIDInit_Position(PID *P)
+//{
+//	P->P = 0.2f;
+//	P->I = 0.006f;
+//	P->D = 120.0f;
+//	P->IMax = 40000.0f;
+//	P->SetPoint = 0.0f;
+//}
 void PIDInit_Position(PID *P)
 {
-	P->P = 0.2f;
-	P->I = 0.006f;
-	P->D = 120.0f;
+	P->P = 15.0f;
+	P->I = 0.0;
+	P->D = 20.0f;
 	P->IMax = 40000.0f;
 	P->SetPoint = 0.0f;
 }
@@ -70,9 +78,13 @@ void EncoderUpdate(ENCODER *E,int Encoder)
 	}
 	E->LastEncoder = Encoder;
 	E->SumEncoder = E->SumEncoder + E->DifferEncoder;
-	E->DistanceFromEncoder = E->DistanceFromEncoder + E->DifferEncoder;
+	E->Distance = (float)E->SumEncoder*0.058084;//轮子直径D=151.46MM   SumEncoder/8192*3.14159*151.46  距离的单位是MM
+	
 }
-
+float EncoderDistanceSum(ENCODER *E0,ENCODER *E1,ENCODER *E2,ENCODER *E3)
+{
+	return (E1->Distance+E2->Distance-E3->Distance-E0->Distance)/4;
+}
 
 
 

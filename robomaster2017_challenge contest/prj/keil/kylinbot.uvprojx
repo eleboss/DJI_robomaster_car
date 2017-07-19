@@ -400,9 +400,19 @@
               <FilePath>..\..\bsp\src\can1.c</FilePath>
             </File>
             <File>
+              <FileName>can2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\bsp\src\can2.c</FilePath>
+            </File>
+            <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\bsp\src\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\bsp\src\usart2.c</FilePath>
             </File>
           </Files>
         </Group>

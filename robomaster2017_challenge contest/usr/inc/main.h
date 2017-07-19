@@ -22,10 +22,11 @@
 #include "stm32f4xx_gpio.h"
 
 #include "can1.h"
+#include "can2.h"
 #include "led.h"
 #include "delay.h"
 #include "control.h"
-
+#include "usart2.h"
 
 
 #include <stdio.h>

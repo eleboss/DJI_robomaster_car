@@ -16,6 +16,7 @@ typedef struct PID{
 	float POut;					//比例输出
 	float IOut;					//积分输出
 	float DOut;					//微分输出
+
 }PID;
 
 typedef struct ENCODER{

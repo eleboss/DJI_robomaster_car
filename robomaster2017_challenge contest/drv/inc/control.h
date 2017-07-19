@@ -24,7 +24,7 @@ typedef struct ENCODER{
 	int DifferEncoder;
 	int LastEncoder;
 	int SumEncoder;
-	int DistanceFromEncoder;
+	float Distance;
 }ENCODER;
 
 
@@ -46,6 +46,6 @@ void PIDInit_BodanMotor(PID *P);
 float PIDCalc(PID *P, float NextPoint);
 
 void EncoderUpdate(ENCODER *E,int Encoder);
-void SWITCH_Configuration(void);
+float EncoderDistanceSum(ENCODER *E0,ENCODER *E1,ENCODER *E2,ENCODER *E3);
 
 #endif

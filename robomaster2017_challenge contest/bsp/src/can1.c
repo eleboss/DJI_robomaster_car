@@ -56,7 +56,6 @@ void CAN1_Configuration(void)
 	CAN_FilterInit(&can_filter);
 	
 	CAN_ITConfig(CAN1, CAN_IT_FMP0, ENABLE);
-	//CAN_ITConfig(CAN1, CAN_IT_TME, ENABLE);
 }
 
 
@@ -130,11 +129,4 @@ void CAN1_RX0_IRQHandler(void)
 		}
 		CAN_ClearITPendingBit(CAN1, CAN_IT_FMP0);
 	}
-}
-void CAN1_TX_IRQ_HANDLER(void)
-{
-  if (CAN_GetITStatus(CAN1, CAN_IT_TME) != RESET)
-	{
-		CAN_ClearITPendingBit(CAN1, CAN_IT_TME);
-  }
 }
