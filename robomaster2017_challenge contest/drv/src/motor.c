@@ -1,55 +1,133 @@
-/**
- * Copyright (c) 2011-2016, Jack Mo (mobangjack@foxmail.com).
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
- 
-#include "motor.h"
+#include "main.h"
 
-void CM_Cmd(CAN_TypeDef* CANx, int16_t c201, int16_t c202, int16_t c203, int16_t c204)
+void MOTOR_Configuration(void)
 {
-	CanTxMsg canTxMsg;
-	canTxMsg.StdId = CM_CMD_CAN_MSG_ID;
-	canTxMsg.IDE = CAN_Id_Standard;
-	canTxMsg.RTR = CAN_RTR_Data;
-	canTxMsg.DLC = 0x08;
+	GPIO_InitTypeDef gpio;
 	
-	canTxMsg.Data[0] = (uint8_t)(c201 >> 8);
-	canTxMsg.Data[1] = (uint8_t)c201;
-	canTxMsg.Data[2] = (uint8_t)(c202 >> 8);
-	canTxMsg.Data[3] = (uint8_t)c202;
-	canTxMsg.Data[4] = (uint8_t)(c203 >> 8);
-	canTxMsg.Data[5] = (uint8_t)c203;
-	canTxMsg.Data[6] = (uint8_t)(c204 >> 8);
-	canTxMsg.Data[7] = (uint8_t)c204;
-	CAN_Transmit(CANx, &canTxMsg);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB,ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC,ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE,ENABLE);
+	
+	gpio.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
+	gpio.GPIO_Mode = GPIO_Mode_OUT;
+	gpio.GPIO_OType = GPIO_OType_PP;
+	gpio.GPIO_Speed = GPIO_Speed_100MHz;
+	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOA,&gpio);
+	
+	gpio.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+	gpio.GPIO_Mode = GPIO_Mode_OUT;
+	gpio.GPIO_OType = GPIO_OType_PP;
+	gpio.GPIO_Speed = GPIO_Speed_100MHz;
+	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB,&gpio);
+	
+	gpio.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1| GPIO_Pin_2| GPIO_Pin_3| GPIO_Pin_4| GPIO_Pin_5;
+	gpio.GPIO_Mode = GPIO_Mode_OUT;
+	gpio.GPIO_OType = GPIO_OType_PP;
+	gpio.GPIO_Speed = GPIO_Speed_100MHz;
+	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOC,&gpio);
+	
+	gpio.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5| GPIO_Pin_6| GPIO_Pin_12;
+	gpio.GPIO_Mode = GPIO_Mode_OUT;
+	gpio.GPIO_OType = GPIO_OType_PP;
+	gpio.GPIO_Speed = GPIO_Speed_100MHz;
+	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOE,&gpio);
+	
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);
 }
-
-void GM_Cmd(CAN_TypeDef* CANx, int16_t c205, int16_t c206)
+//轮子上升下降  STEP:PC4,PC5  DIR:PC1,PC0
+void Wheel_Move(u32 wheel,u32 dir,u32 delay)
 {
-	CanTxMsg canTxMsg;
-	canTxMsg.StdId = GM_CMD_CAN_MSG_ID;
-	canTxMsg.IDE = CAN_Id_Standard;
-	canTxMsg.RTR = CAN_RTR_Data;
-	canTxMsg.DLC = 0x08;
-	
-	canTxMsg.Data[0] = (uint8_t)(c205 >> 8);
-	canTxMsg.Data[1] = (uint8_t)c205;
-	canTxMsg.Data[2] = (uint8_t)(c206 >> 8);
-	canTxMsg.Data[3] = (uint8_t)c206;
-	canTxMsg.Data[4] = (uint8_t)0x00;
-	canTxMsg.Data[5] = (uint8_t)0x00;
-	canTxMsg.Data[6] = (uint8_t)0x00;
-	canTxMsg.Data[7] = (uint8_t)0x00;
-	CAN_Transmit(CANx, &canTxMsg);
+	u32 i=0;
+	if(dir==1)
+	{
+		GPIO_SetBits(GPIOC,GPIO_Pin_0);
+		GPIO_SetBits(GPIOC,GPIO_Pin_1);
+	}
+	else
+	{
+		GPIO_ResetBits(GPIOC,GPIO_Pin_0);
+		GPIO_ResetBits(GPIOC,GPIO_Pin_1);
+	}
+	for(i=0;i<=wheel;i++)
+	{
+		GPIO_SetBits(GPIOC,GPIO_Pin_5);
+		GPIO_SetBits(GPIOC,GPIO_Pin_4);
+		Delay_Us(delay);
+		GPIO_ResetBits(GPIOC,GPIO_Pin_5);
+		GPIO_ResetBits(GPIOC,GPIO_Pin_4);
+		Delay_Us(delay);
+	}
+}
+//退箱子  STEP:PA5 DIR:PA4
+void Push_Move(u32 wheel,u32 dir,u32 delay)
+{
+	u32 i=0;
+	if(dir==1)
+	{
+		GPIO_SetBits(GPIOA,GPIO_Pin_4);
+	}
+	else
+	{
+		GPIO_ResetBits(GPIOA,GPIO_Pin_4);
+	}
+	for(i=0;i<=wheel;i++)
+	{
+		GPIO_SetBits(GPIOA,GPIO_Pin_5);
+		Delay_Us(delay);
+		GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+		Delay_Us(delay);
+	}
+}
+//箱子夹子  STEP:PC3,PC2  DIR:PB1,PB0
+void Fetch_Move(u32 wheel,u32 dir,u32 delay)
+{
+	u32 i=0;
+	if(dir==1)
+	{
+		GPIO_SetBits(GPIOB,GPIO_Pin_1);
+		GPIO_SetBits(GPIOB,GPIO_Pin_2);
+	}
+	else
+	{
+		GPIO_ResetBits(GPIOB,GPIO_Pin_1);
+		GPIO_ResetBits(GPIOB,GPIO_Pin_2);
+	}
+	for(i=0;i<=wheel;i++)
+	{
+		GPIO_SetBits(GPIOC,GPIO_Pin_3);
+		GPIO_SetBits(GPIOC,GPIO_Pin_2);
+		Delay_Us(delay);
+		GPIO_ResetBits(GPIOC,GPIO_Pin_3);
+		GPIO_ResetBits(GPIOC,GPIO_Pin_2);
+		Delay_Us(delay);
+	}
+}
+//夹子提升降落  STEP:PE6,PE5 DIR:PE12,PE4
+void Updown_Move(u32 wheel,u32 dir,u32 delay)
+{
+	u32 i=0;
+	if(dir==1)
+	{
+		GPIO_SetBits(GPIOE,GPIO_Pin_12);
+		GPIO_SetBits(GPIOE,GPIO_Pin_4);
+	}
+	else
+	{
+		GPIO_ResetBits(GPIOE,GPIO_Pin_12);
+		GPIO_ResetBits(GPIOE,GPIO_Pin_4);
+	}
+	for(i=0;i<=wheel;i++)
+	{
+		GPIO_SetBits(GPIOE,GPIO_Pin_6);
+		GPIO_SetBits(GPIOE,GPIO_Pin_5);
+		Delay_Us(delay);
+		GPIO_ResetBits(GPIOE,GPIO_Pin_6);
+		GPIO_ResetBits(GPIOE,GPIO_Pin_5);
+		Delay_Us(delay);
+	}
 }

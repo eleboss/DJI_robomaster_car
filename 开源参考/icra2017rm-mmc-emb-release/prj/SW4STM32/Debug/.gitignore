@@ -1,0 +1,11 @@
+/app/
+/sources.mk
+/asp/
+/bsp/
+/makefile
+/objects.list
+/objects.mk
+/srv/
+/stl/
+/subdir.mk
+/usr/

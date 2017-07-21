@@ -78,7 +78,7 @@ void EncoderUpdate(ENCODER *E,int Encoder)
 	}
 	E->LastEncoder = Encoder;
 	E->SumEncoder = E->SumEncoder + E->DifferEncoder;
-	E->Distance = (float)E->SumEncoder*0.058084;//轮子直径D=151.46MM   SumEncoder/8192*3.14159*151.46  距离的单位是MM
+	E->Distance = (double)E->SumEncoder*0.058084;//轮子直径D=151.46MM   SumEncoder/8192*3.14159*151.46  距离的单位是MM
 	
 }
 float EncoderDistanceSum(ENCODER *E0,ENCODER *E1,ENCODER *E2,ENCODER *E3)

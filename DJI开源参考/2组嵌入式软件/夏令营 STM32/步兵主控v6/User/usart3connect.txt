@@ -1,3 +1,0 @@
-'0' - None
-'1' - Busy
-'2' - Finished

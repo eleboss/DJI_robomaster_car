@@ -1,76 +1,96 @@
-#include "main.h"
+#include "main.h" 	 
 
-const uint16_t BEEP_TONE_TABLE[BEEP_TONE_TABLE_LEN] = BEEP_TONE_TABLE_DEF;
-const BeepTone_t BEEP_START_UP_MUSIC[BEEP_START_UP_MUSIC_LEN] = BEEP_START_UP_MUSIC_DEF;
+//初始化PB4为输出口		    
+//BEEP IO初始化
+void BEEP_Init(void)
+{   
+	GPIO_InitTypeDef 					GPIO_InitStructure;
+	TIM_TimeBaseInitTypeDef  	TIM_TimeBaseStructure;
+	TIM_OCInitTypeDef  				TIM_OCInitStructure;
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);  	//TIM3时钟使能    
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
+	
+	GPIO_PinAFConfig(GPIOB,GPIO_PinSource4,GPIO_AF_TIM3); //GPIOB4复用为定时器3
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;           //GPIOB4
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;        //复用功能
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//速度100MHz
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;      //推挽复用输出
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;        //上拉
+	GPIO_Init(GPIOB,&GPIO_InitStructure);              	//初始化PB4
+	  
+	TIM_TimeBaseStructure.TIM_Prescaler = 90-1;  //定时器分频
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //向上计数模式
+	TIM_TimeBaseStructure.TIM_Period = 1;   //自动重装载值
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; 
+	
+	TIM_TimeBaseInit(TIM3,&TIM_TimeBaseStructure);//初始化定时器3
+	
+	//初始化TIM3 Channel1 PWM模式	 
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //选择定时器模式:TIM脉冲宽度调制模式2
+ 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; //输出极性:TIM输出比较极性高
+	TIM_OC1Init(TIM3, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM3 OC1
 
-void Beep_Sing(BeepTone_t tone)
+	TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);  //使能TIM3在CCR1上的预装载寄存器
+ 
+  TIM_ARRPreloadConfig(TIM3,ENABLE);//ARPE使能 
+	
+	TIM_Cmd(TIM3, ENABLE);  //使能TIM3
+	
+}
+
+const uint16_t tone_tab[] = 
 {
-  if(Silent == tone) {
-    BEEP_CCR = 0;
-	} else {
-    BEEP_ARR = BEEP_TONE_TABLE[tone];
-    BEEP_CCR = BEEP_TONE_TABLE[tone] / 2;
+  3822,  3405, 3033, 2863, 2551, 2272, 2024,	//bass 1~7
+  1911,  1702, 1526, 1431, 1275, 1136, 1012,	//mid 1~7
+  955,   851,  758,  715,   637, 568,   506,	//treble 1~7
+};
+
+const Sound_tone_e Mavic_Startup_music[Startup_Success_music_len] = 
+{
+  So5L, So5L, So5L, So5L, La6L, La6L, La6L, La6L, Mi3M, Mi3M, Mi3M, Mi3M, Mi3M, Silent,
+};
+
+//
+void Sing(Sound_tone_e tone)
+{
+  if(Silent == tone)
+    BEEP_CH = 0;
+  else 
+  {
+    BEEP_ARR = tone_tab[tone];
+    BEEP_CH = tone_tab[tone] / 2;
   }
 }
 
 //play the start up music
-void Beep_SingStartupMusic(uint32_t index)
+void Sing_Startup_music(uint32_t index)
 {
-  if(index < BEEP_START_UP_MUSIC_LEN)
-    Beep_Sing(BEEP_START_UP_MUSIC[index]);
+  if(index < Startup_Success_music_len)
+    Sing(Mavic_Startup_music[index]);
 }
-void TIM3_OC_Config(TIM_TypeDef* timx, u16 mode, u32 pulse)
+void Startup_music(void)
 {
-	TIM_OCInitTypeDef oc;
-	oc.TIM_OCMode = mode;
-	oc.TIM_OutputState = TIM_OutputState_Enable;
-	oc.TIM_OutputNState = TIM_OutputState_Disable;
-	oc.TIM_Pulse = pulse;
-	oc.TIM_OCPolarity = TIM_OCPolarity_Low;
-	oc.TIM_OCNPolarity = TIM_OCPolarity_High;
-	oc.TIM_OCIdleState = TIM_OCIdleState_Reset;
-	oc.TIM_OCNIdleState = TIM_OCIdleState_Set;
-	TIM_OC3Init(timx,&oc);
-	TIM_OC3PreloadConfig(timx,TIM_OCPreload_Enable);
+	Sing_Startup_music(1);
+	Delay_Ms(100);
+	Sing_Startup_music(2);
+	Delay_Ms(200);
+	Sing_Startup_music(9);
+	Delay_Ms(100);
+	Sing_Startup_music(10);
+	Delay_Ms(100);
+	Sing_Startup_music(11);
+	Delay_Ms(100);
+	Sing_Startup_music(12);
+	Delay_Ms(100);
+	Sing_Startup_music(13);
+	Delay_Ms(100);
+	Sing_Startup_music(14);
 }
-void TIM_Config(TIM_TypeDef* timx, u16 ps, u16 mode, u32 period, u16 div, u8 re)
-{
-	TIM_TimeBaseInitTypeDef tim;
-	if (timx == TIM1) {
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
-	}
-	if (timx == TIM2) {
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-	}
-	if (timx == TIM3) {
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-	}
-	tim.TIM_Prescaler = ps;
-	tim.TIM_CounterMode = mode;
-	tim.TIM_Period = period;
-	tim.TIM_ClockDivision = div;
-	tim.TIM_RepetitionCounter = re;
-	TIM_TimeBaseInit(timx,&tim);
-}
-void GPIO_Config(void)
-{
-	GPIO_InitTypeDef gpio;
-	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB,ENABLE);
-	
-	gpio.GPIO_Pin = GPIO_Pin_4 ;
-	gpio.GPIO_Mode = GPIO_Mode_AF;
-	gpio.GPIO_OType = GPIO_OType_PP;
-	gpio.GPIO_Speed = GPIO_Fast_Speed;
-	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(GPIOB,&gpio);
-}
-void BEEP_Configuration(void)
-{
-	GPIO_Config();
-	GPIO_PinAFConfig(GPIOB, GPIO_PinSource3 , GPIO_AF_TIM3);
-	TIM_Config(BEEP_TIM, BEEP_TIM_PS, TIM_CounterMode_Up, BEEP_TIM_PD, TIM_CKD_DIV1, 0); \
-	TIM3_OC_Config(BEEP_TIM, TIM_OCMode_PWM2, BEEP_TIM_PW); \
-  TIM_Cmd(BEEP_TIM, ENABLE);
-}
+
+
+
+
 

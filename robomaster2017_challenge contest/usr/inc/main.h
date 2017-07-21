@@ -23,10 +23,13 @@
 
 #include "can1.h"
 #include "can2.h"
+#include "beep.h"
 #include "led.h"
+#include "motor.h"
 #include "delay.h"
 #include "control.h"
 #include "usart2.h"
+#include "usart3.h"
 
 
 #include <stdio.h>
