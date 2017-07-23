@@ -1,6 +1,6 @@
 Dependencies for Project 'kylinbot', Target 'kylinbot': (DO NOT MODIFY !)
-F (..\..\usr\src\main.c)(0x597184BC)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+F (..\..\usr\src\main.c)(0x59748B58)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -27,9 +27,10 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
@@ -57,7 +58,7 @@ I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x58F55218)
 I (..\..\stl\StdPeriph_Driver\inc\misc.h)(0x58F55218)
 I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_can.h)(0x58F55218)
 F (..\..\bsp\src\can1.c)(0x596C62A4)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\can1.o --omf_browse .\objects\can1.crf --depend .\objects\can1.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -84,15 +85,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
-F (..\..\bsp\src\can2.c)(0x59708CBF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\can2.o --omf_browse .\objects\can2.crf --depend .\objects\can2.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+F (..\..\bsp\src\can2.c)(0x597433F0)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\can2.o --omf_browse .\objects\can2.crf --depend .\objects\can2.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -119,15 +121,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
 F (..\..\bsp\src\beep.c)(0x59717FA2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -154,15 +157,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
 F (..\..\bsp\src\led.c)(0x596AD4B7)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -189,15 +193,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
-F (..\..\bsp\src\usart2.c)(0x596C348E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+F (..\..\bsp\src\usart2.c)(0x59749054)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -224,15 +229,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
-F (..\..\bsp\src\usart3.c)(0x59715E5C)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+F (..\..\bsp\src\usart3.c)(0x597483EB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -259,9 +265,82 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
+F (..\..\bsp\src\tim.c)(0x597483EB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\tim.o --omf_browse .\objects\tim.crf --depend .\objects\tim.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
+I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\stl\CMSIS\core\core_cmInstr.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cmFunc.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cmSimd.h)(0x58F55218)
+I (..\..\stl\CMSIS\device\system_stm32f4xx.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_conf.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\misc.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_can.h)(0x58F55218)
+I (..\..\bsp\inc\can1.h)(0x596ACE01)
+I (..\..\bsp\inc\can2.h)(0x596CA85C)
+I (..\..\bsp\inc\beep.h)(0x59717EFC)
+I (..\..\bsp\inc\led.h)(0x596AD4B7)
+I (..\..\drv\inc\motor.h)(0x5971840F)
+I (..\..\drv\inc\delay.h)(0x58F55218)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
+F (..\..\bsp\src\usart6.c)(0x5974920B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\usart6.o --omf_browse .\objects\usart6.crf --depend .\objects\usart6.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
+I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
+I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\stl\CMSIS\core\core_cmInstr.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cmFunc.h)(0x58F55218)
+I (..\..\stl\CMSIS\core\core_cmSimd.h)(0x58F55218)
+I (..\..\stl\CMSIS\device\system_stm32f4xx.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_conf.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\misc.h)(0x58F55218)
+I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_can.h)(0x58F55218)
+I (..\..\bsp\inc\can1.h)(0x596ACE01)
+I (..\..\bsp\inc\can2.h)(0x596CA85C)
+I (..\..\bsp\inc\beep.h)(0x59717EFC)
+I (..\..\bsp\inc\led.h)(0x596AD4B7)
+I (..\..\drv\inc\motor.h)(0x5971840F)
+I (..\..\drv\inc\delay.h)(0x58F55218)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
@@ -291,8 +370,8 @@ I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x58F55218)
 I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x58F55218)
 I (..\..\stl\StdPeriph_Driver\inc\misc.h)(0x58F55218)
 I (..\..\stl\StdPeriph_Driver\inc\stm32f4xx_can.h)(0x58F55218)
-F (..\..\drv\src\control.c)(0x59701AAC)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+F (..\..\drv\src\control.c)(0x597486D2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -319,15 +398,16 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
 F (..\..\drv\src\motor.c)(0x59717C63)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\stl\CMSIS\core -I ..\..\stl\CMSIS\device -I ..\..\stl\StdPeriph_Driver\inc -I ..\..\stl\inc -I ..\..\bsp\inc -I ..\..\srv\inc -I ..\..\asp\inc -I ..\..\app\inc -I ..\..\usr\inc -I ..\..\kos\inc -I ..\..\drv\inc -I ..\..\stl\inc -I ..\..\hal\inc --C99-I.\RTE\_kylinbot-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include"-I"D:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0"-D__UVISION_VERSION="523" -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DSTM32F427X -DSTM32F427xx --C99-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
-I (..\..\usr\inc\main.h)(0x59717C3F)
+I (..\..\usr\inc\main.h)(0x597483FC)
 I (..\..\stl\CMSIS\device\stm32f4xx.h)(0x58F55218)
 I (..\..\stl\CMSIS\core\core_cm4.h)(0x58F55218)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -354,9 +434,10 @@ I (..\..\bsp\inc\beep.h)(0x59717EFC)
 I (..\..\bsp\inc\led.h)(0x596AD4B7)
 I (..\..\drv\inc\motor.h)(0x5971840F)
 I (..\..\drv\inc\delay.h)(0x58F55218)
-I (..\..\drv\inc\control.h)(0x596F0FC4)
-I (..\..\bsp\inc\usart2.h)(0x596C1B50)
-I (..\..\bsp\inc\usart3.h)(0x59708CBF)
+I (..\..\drv\inc\control.h)(0x59748B58)
+I (..\..\bsp\inc\tim.h)(0x59744C59)
+I (..\..\bsp\inc\usart2.h)(0x59749207)
+I (..\..\bsp\inc\usart3.h)(0x597483EB)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
 I (D:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)

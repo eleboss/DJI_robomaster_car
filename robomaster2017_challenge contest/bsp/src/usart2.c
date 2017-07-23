@@ -1,120 +1,74 @@
 #include "main.h"
 
+/*-----USART2_TX-----PD4-----*/
+/*-----USART2_RX-----PD6-----*/
 
-unsigned char TB[TBPackSize];
-unsigned char RB[RBPackSize];
+float PID_RxPosition[3]={0};
+float PID_RxYaw[3]={0};
+float PID_RxSpeed[3]={0};
+static uint8_t i=0,rebuf[11]={0};
 
 
 void USART2_Configuration(void)
 {
     USART_InitTypeDef usart2;
-		GPIO_InitTypeDef  gpio;
+    GPIO_InitTypeDef  gpio;
     NVIC_InitTypeDef  nvic;
-	
-		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE);
-	
-		GPIO_PinAFConfig(GPIOD,GPIO_PinSource5,GPIO_AF_USART2);
-		GPIO_PinAFConfig(GPIOD,GPIO_PinSource6,GPIO_AF_USART2); 
-	
-		gpio.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
-		gpio.GPIO_Mode = GPIO_Mode_AF;
+
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE);
+
+    GPIO_PinAFConfig(GPIOD,GPIO_PinSource5,GPIO_AF_USART2);
+    GPIO_PinAFConfig(GPIOD,GPIO_PinSource6,GPIO_AF_USART2); 
+
+    gpio.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
+    gpio.GPIO_Mode = GPIO_Mode_AF;
     gpio.GPIO_OType = GPIO_OType_PP;
-    gpio.GPIO_Speed = GPIO_Speed_50MHz;
+    gpio.GPIO_Speed = GPIO_Speed_100MHz;
     gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
-		GPIO_Init(GPIOD,&gpio);
+    GPIO_Init(GPIOD,&gpio);
 
-		usart2.USART_BaudRate = 115200;
-		usart2.USART_WordLength = USART_WordLength_8b;
-		usart2.USART_StopBits = USART_StopBits_1;
-		usart2.USART_Parity = USART_Parity_No;
-		usart2.USART_Mode = USART_Mode_Tx|USART_Mode_Rx;
+    usart2.USART_BaudRate = 115200;          // speed 10byte/ms
+    usart2.USART_WordLength = USART_WordLength_8b;
+    usart2.USART_StopBits = USART_StopBits_1;
+    usart2.USART_Parity = USART_Parity_No;
+    usart2.USART_Mode = USART_Mode_Tx|USART_Mode_Rx;
     usart2.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-		USART_Init(USART2,&usart2);
-		USART_Cmd(USART2,ENABLE);
-		USART_DMACmd(USART2,USART_DMAReq_Rx|USART_DMAReq_Tx,ENABLE);
-		
-		nvic.NVIC_IRQChannel = DMA1_Stream5_IRQn;
-		nvic.NVIC_IRQChannelPreemptionPriority = 3;
-		nvic.NVIC_IRQChannelSubPriority = 2;
-		nvic.NVIC_IRQChannelCmd = ENABLE;
-		NVIC_Init(&nvic);
-		
-		nvic.NVIC_IRQChannel = DMA1_Stream6_IRQn;
-		nvic.NVIC_IRQChannelPreemptionPriority = 3;
-		nvic.NVIC_IRQChannelSubPriority = 2;
-		nvic.NVIC_IRQChannelCmd = ENABLE;
-		NVIC_Init(&nvic);
-		
-		{
-			DMA_InitTypeDef 	dma;
-			RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1,ENABLE);
-			//Tx
-			dma.DMA_Channel= DMA_Channel_4;
-			dma.DMA_PeripheralBaseAddr = (uint32_t)(&USART2->DR); 
-			dma.DMA_Memory0BaseAddr = (uint32_t)TB;
-			dma.DMA_DIR = DMA_DIR_MemoryToPeripheral;  
-			dma.DMA_BufferSize = TBPackSize; 
-			dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-			dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
-			dma.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-			dma.DMA_MemoryDataSize = DMA_PeripheralDataSize_Byte;
-			dma.DMA_Mode = DMA_Mode_Circular;
-			dma.DMA_Priority = DMA_Priority_Low;
-			dma.DMA_FIFOMode = DMA_FIFOMode_Disable;
-			dma.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull;
-			dma.DMA_MemoryBurst = DMA_Mode_Normal;
-			dma.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-			DMA_Init(DMA1_Stream6,&dma);
-			DMA_Cmd(DMA1_Stream6,ENABLE);
-			
-			//Rx
-			dma.DMA_Channel= DMA_Channel_4;
-			dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART2->DR);
-			dma.DMA_Memory0BaseAddr = (uint32_t)RB;
-			dma.DMA_DIR = DMA_DIR_PeripheralToMemory;
-			dma.DMA_BufferSize = RBPackSize;
-			dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-			dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
-			dma.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-			dma.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-			dma.DMA_Mode = DMA_Mode_Circular;
-			dma.DMA_Priority = DMA_Priority_VeryHigh;
-			dma.DMA_FIFOMode = DMA_FIFOMode_Disable;
-			dma.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull;
-			dma.DMA_MemoryBurst = DMA_Mode_Normal;
-			dma.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-			DMA_Init(DMA1_Stream5,&dma);
-			DMA_Cmd(DMA1_Stream5,ENABLE);
-			DMA_ITConfig(DMA1_Stream5,DMA_IT_TC,ENABLE);
-	 }
+    USART_Init(USART2,&usart2);
+
+    USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
+    USART_Cmd(USART2,ENABLE);
+
+    nvic.NVIC_IRQChannel = USART2_IRQn;
+    nvic.NVIC_IRQChannelPreemptionPriority = 1;
+    nvic.NVIC_IRQChannelSubPriority = 0;
+    nvic.NVIC_IRQChannelCmd = ENABLE; 
+    NVIC_Init(&nvic);
 }
 
 
-void DMA1_Stream5_IRQHandler(void)
+void USART2_IRQHandler(void)
 {
-	int PackPoint = 0;
-	if(DMA_GetITStatus(DMA1_Stream5, DMA_IT_TCIF5))
+	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)    //接收中断
 	{
-		DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_TCIF5);
-		DMA_ClearITPendingBit(DMA1_Stream5, DMA_IT_TCIF5);
-		for(PackPoint = 0; PackPoint < RBPackSize; PackPoint++)
+		rebuf[i++]=USART_ReceiveData(USART2);//读取串口数据，同时清接收标志
+		if (rebuf[0]==0x5A && rebuf[10]==0x8B)//帧头对数据有
 		{
-			if((RB[PackPoint%RBPackSize] == 'l')&&(RB[(PackPoint+RBPackSize-1)%RBPackSize] == 'd'))
-			{
-				return;
-			}
+			//速度环 位置环 YAW
+			PID_RxSpeed[0]=(float)(rebuf[1]*0.01);
+			PID_RxSpeed[1]=(float)(rebuf[2]*0.01);
+			PID_RxSpeed[2]=(float)(rebuf[3]*0.01);
+			PID_RxPosition[0]=(float)(rebuf[4]*0.01);
+			PID_RxPosition[1]=(float)(rebuf[5]*0.01);
+			PID_RxPosition[2]=(float)(rebuf[6]*0.01);
+			PID_RxYaw[0]=(float)(rebuf[7]*0.01);
+			PID_RxYaw[1]=(float)(rebuf[8]*0.01);
+			PID_RxYaw[2]=(float)(rebuf[9]*0.01);
+			LED_RED_TOGGLE();
 		}
-	}		
-}
-
-
-void DMA1_Stream6_IRQHandler(void)
-{
-	if(DMA_GetITStatus(DMA1_Stream6, DMA_IT_TCIF6))
-	{
-		DMA_ClearFlag(DMA1_Stream6, DMA_FLAG_TCIF6);
-		DMA_ClearITPendingBit(DMA1_Stream6, DMA_IT_TCIF6);
+		if (rebuf[0]!=0x5A)
+			i=0;
+		if(i==11)
+			i=0;
 	}
 }
-

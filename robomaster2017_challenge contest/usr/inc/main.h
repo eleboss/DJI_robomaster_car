@@ -28,6 +28,7 @@
 #include "motor.h"
 #include "delay.h"
 #include "control.h"
+#include "tim.h"
 #include "usart2.h"
 #include "usart3.h"
 
@@ -39,6 +40,16 @@
 
 #define abs(x) ((x)>0? (x):(-(x)))
 #define LIMIT_MIN_MAX(x,min,max)	(((x)<=(min))?(min):(((x)>=(max))?(max):(x)))
+
+extern HG900MotorRecvmsg HG900MotorData[4];
+extern float CarDirectionAngel;
+extern PID PID_Speed[4];
+extern PID PID_Position;
+extern PID PID_YawControl;
+extern ENCODER ENCODER_CAN[4];
+extern Speed SpeedSet;
+extern float SpeedSend[4];
+extern double AverageDistance;
 
 typedef struct{
 	struct

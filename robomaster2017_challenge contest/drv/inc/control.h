@@ -47,5 +47,7 @@ float PIDCalc(PID *P, float NextPoint);
 
 void EncoderUpdate(ENCODER *E,int Encoder);
 float EncoderDistanceSum(ENCODER *E0,ENCODER *E1,ENCODER *E2,ENCODER *E3);
+void PID_Rx(PID *PS0,PID *PS1,PID *PS2,PID *PS3, PID *PP, PID *PY);
+void Control_Task(void);
 
 #endif

@@ -73,16 +73,10 @@ void send_com(u8 data)
 void Infraed_Configuration(void)
 {
 	USART3_Configuration();
-	Delay_Ms(500);
 	send_com(0x45);
 }
 
-int fputc(int ch, FILE *f)
-{
-    while (USART_GetFlagStatus(USART3,USART_FLAG_TC) == RESET);
-    USART_SendData(USART3, (uint8_t)ch);
-    return ch;
-}
+
 
 
 void USART3_IRQHandler(void)
@@ -109,7 +103,6 @@ void USART3_IRQHandler(void)
 						InfraredDistance=InfraredReceivedBuf[4]<<8|InfraredReceivedBuf[5];
 					}
 					break;
-			
 			}
 			i=0;//»º´æÇå0
 		}

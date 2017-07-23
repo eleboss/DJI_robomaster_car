@@ -12,7 +12,7 @@ void TIM6_Configuration(void)
     nvic.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&nvic);
 
-    tim.TIM_Prescaler = 84-1;        //84M internal clock
+    tim.TIM_Prescaler = 90-1;        //84M internal clock
     tim.TIM_CounterMode = TIM_CounterMode_Up;
     tim.TIM_ClockDivision = TIM_CKD_DIV1;
     tim.TIM_Period = 1000;  //1ms,1000Hz
@@ -25,14 +25,20 @@ void TIM6_Start(void)
     TIM_ITConfig(TIM6, TIM_IT_Update,ENABLE);
     TIM_ClearFlag(TIM6, TIM_FLAG_Update);	
 }
-
+void TIM6_Stop(void)
+{
+    TIM_Cmd(TIM6, DISABLE);	 
+    TIM_ITConfig(TIM6, TIM_IT_Update,DISABLE);
+}
 void TIM6_DAC_IRQHandler(void)  
 {
 	
     if (TIM_GetITStatus(TIM6,TIM_IT_Update)!= RESET) 
 	  {
-		TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
-        TIM_ClearFlag(TIM6, TIM_FLAG_Update);
-		Control_Task();         //底盘、云台控制任务
+			TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
+      TIM_ClearFlag(TIM6, TIM_FLAG_Update);
+			LED_GREEN_TOGGLE();
+			Control_Task();         //底盘、云台控制任务
+			LED_GREEN_TOGGLE();
     }
 }

@@ -2,9 +2,11 @@
 #define __USART2_H__
 
 
-#define RBPackSize 16
-#define TBPackSize 7
 
 void USART2_Configuration(void);
+extern float PID_RxPosition[3];
+extern float PID_RxYaw[3];
+extern float PID_RxSpeed[3];
+
 
 #endif

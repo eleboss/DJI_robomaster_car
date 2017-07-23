@@ -1,5 +1,7 @@
 #include "main.h"
 float CarDirectionAngel;
+float Angel[2]={0};
+u32 i=0;
 void CAN2_Configuration(void)
 {
 	CAN_InitTypeDef        can;
@@ -63,7 +65,16 @@ void CAN2_RX0_IRQHandler(void)
 		CAN_ClearITPendingBit(CAN2, CAN_IT_FMP0);
 		CAN_ClearFlag(CAN2, CAN_FLAG_FF0);
 		CAN_Receive(CAN2, CAN_FIFO0, &canRxMsg);
-	  CarDirectionAngel = (-0.01) * ((int32_t)(canRxMsg.Data[0]<<24)|(int32_t)(canRxMsg.Data[1]<<16)|(int32_t)(canRxMsg.Data[2]<<8)|(int32_t)(canRxMsg.Data[3]));
-
+		if(i==0)
+		{
+			Angel[0]= (-0.01) * ((int32_t)(canRxMsg.Data[0]<<24)|(int32_t)(canRxMsg.Data[1]<<16)|(int32_t)(canRxMsg.Data[2]<<8)|(int32_t)(canRxMsg.Data[3]));
+			i++;
+		}
+		else
+		{
+			i=1;
+		}
+		Angel[1]= (-0.01) * ((int32_t)(canRxMsg.Data[0]<<24)|(int32_t)(canRxMsg.Data[1]<<16)|(int32_t)(canRxMsg.Data[2]<<8)|(int32_t)(canRxMsg.Data[3]));
+		CarDirectionAngel=Angel[1]-Angel[0];
 	}
 }
