@@ -425,14 +425,14 @@
               <FilePath>..\..\bsp\src\usart3.c</FilePath>
             </File>
             <File>
-              <FileName>tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\bsp\src\tim.c</FilePath>
-            </File>
-            <File>
               <FileName>usart6.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\bsp\src\usart6.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\bsp\src\tim.c</FilePath>
             </File>
           </Files>
         </Group>

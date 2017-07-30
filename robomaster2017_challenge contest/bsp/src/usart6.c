@@ -51,9 +51,9 @@ int fputc(int ch, FILE *f)
 void USART6_IRQHandler(void)
 {
 	static uint8_t i=0,rebuf[20]={0};
-	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)    //接收中断
+	if(USART_GetITStatus(USART6, USART_IT_RXNE) != RESET)    //接收中断
 	{
-		rebuf[i++]=USART_ReceiveData(USART3);//读取串口数据，同时清接收标志
+		rebuf[i++]=USART_ReceiveData(USART6);//读取串口数据，同时清接收标志
 	}
 }
 
