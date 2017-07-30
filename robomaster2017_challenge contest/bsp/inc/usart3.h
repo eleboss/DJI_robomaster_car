@@ -4,5 +4,5 @@
 void USART3_Configuration(void);
 void Infraed_Configuration(void);
 
-extern unsigned char InfraredReceivedBuf[8],InfraredReceived;
+extern unsigned char InfraredReceivedBuf[8];
 #endif

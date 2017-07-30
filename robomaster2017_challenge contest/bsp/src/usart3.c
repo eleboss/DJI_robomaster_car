@@ -2,7 +2,7 @@
 
 /*-----USART3_TX-----PD8-----*/
 /*-----USART3_RX-----PD9-----*/
-u8 InfraredReceivedBuf[8]={0},InfraredReceived=0;
+u8 InfraredReceivedBuf[8]={0};
 u32 InfraredDistance=0;
 
 
@@ -96,12 +96,9 @@ void USART3_IRQHandler(void)
 			switch(rebuf[2])//接收完毕后处理
 			{
 				case 0x15:
-					if(!InfraredReceived)//当数据处理完成后才接收新的数据
-					{
 						memcpy(InfraredReceivedBuf,rebuf,8);//拷贝接收到的数据
-						InfraredReceived=1;//接收完成标志
 						InfraredDistance=InfraredReceivedBuf[4]<<8|InfraredReceivedBuf[5];
-					}
+
 					break;
 			}
 			i=0;//缓存清0

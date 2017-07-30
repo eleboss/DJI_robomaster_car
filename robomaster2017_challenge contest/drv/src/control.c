@@ -111,7 +111,7 @@ void Control_Task(void)
 	EncoderUpdate(&ENCODER_CAN[2],HG900MotorData[2].Angle);
 	EncoderUpdate(&ENCODER_CAN[3],HG900MotorData[3].Angle);
 	//ËÙ¶È»»PID¿ØÖÆ
-	MECANUM_MOVE(&SpeedSet,0,30,0);
+	MECANUM_MOVE(&SpeedSet,0,0,30);
 	PID_Speed[0].SetPoint = -SpeedSet.RightSpeed_1*0.16;
 	PID_Speed[1].SetPoint = SpeedSet.LeftSpeed_1*0.16;
 	PID_Speed[2].SetPoint = SpeedSet.LeftSpeed_2*0.16;

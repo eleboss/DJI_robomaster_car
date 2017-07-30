@@ -39,6 +39,6 @@ void TIM6_DAC_IRQHandler(void)
       TIM_ClearFlag(TIM6, TIM_FLAG_Update);
 			LED_GREEN_TOGGLE();
 			Control_Task();         //底盘、云台控制任务
-			LED_GREEN_TOGGLE();
+
     }
 }

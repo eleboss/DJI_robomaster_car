@@ -102,18 +102,6 @@ Section Cross References
     usart3.o(i.USART_Send) refers to usart3.o(i.USART3_send_byte) for USART3_send_byte
     usart3.o(i.send_com) refers to usart3.o(i.USART_Send) for USART_Send
     usart3.o(i.send_com) refers to usart3.o(.constdata) for .constdata
-    tim.o(i.TIM6_Configuration) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
-    tim.o(i.TIM6_Configuration) refers to misc.o(i.NVIC_Init) for NVIC_Init
-    tim.o(i.TIM6_Configuration) refers to stm32f4xx_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
-    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
-    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
-    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearFlag) for TIM_ClearFlag
-    tim.o(i.TIM6_DAC_IRQHandler) refers to control.o(i.Control_Task) for Control_Task
-    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
-    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
-    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_ClearFlag) for TIM_ClearFlag
-    tim.o(i.TIM6_Stop) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
-    tim.o(i.TIM6_Stop) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
     usart6.o(i.USART6_Configuration) refers to stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd) for RCC_AHB1PeriphClockCmd
     usart6.o(i.USART6_Configuration) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
     usart6.o(i.USART6_Configuration) refers to stm32f4xx_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
@@ -128,6 +116,18 @@ Section Cross References
     usart6.o(i.USART6_IRQHandler) refers to usart6.o(.data) for .data
     usart6.o(i.fputc) refers to stm32f4xx_usart.o(i.USART_GetFlagStatus) for USART_GetFlagStatus
     usart6.o(i.fputc) refers to stm32f4xx_usart.o(i.USART_SendData) for USART_SendData
+    tim.o(i.TIM6_Configuration) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    tim.o(i.TIM6_Configuration) refers to misc.o(i.NVIC_Init) for NVIC_Init
+    tim.o(i.TIM6_Configuration) refers to stm32f4xx_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
+    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
+    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
+    tim.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearFlag) for TIM_ClearFlag
+    tim.o(i.TIM6_DAC_IRQHandler) refers to control.o(i.Control_Task) for Control_Task
+    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
+    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
+    tim.o(i.TIM6_Start) refers to stm32f4xx_tim.o(i.TIM_ClearFlag) for TIM_ClearFlag
+    tim.o(i.TIM6_Stop) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
+    tim.o(i.TIM6_Stop) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
     flash.o(i.Flash_Write) refers to flash.o(i.Flash_GetSector) for Flash_GetSector
     flash.o(i.Flash_Write) refers to stm32f4xx_flash.o(i.FLASH_Unlock) for FLASH_Unlock
     flash.o(i.Flash_Write) refers to stm32f4xx_flash.o(i.FLASH_DataCacheCmd) for FLASH_DataCacheCmd
@@ -447,14 +447,14 @@ Removing Unused input sections from the image.
     Removing usart3.o(.rev16_text), (4 bytes).
     Removing usart3.o(.revsh_text), (4 bytes).
     Removing usart3.o(.rrx_text), (6 bytes).
-    Removing tim.o(.rev16_text), (4 bytes).
-    Removing tim.o(.revsh_text), (4 bytes).
-    Removing tim.o(.rrx_text), (6 bytes).
     Removing usart6.o(.rev16_text), (4 bytes).
     Removing usart6.o(.revsh_text), (4 bytes).
     Removing usart6.o(.rrx_text), (6 bytes).
     Removing usart6.o(i.USART6_Configuration), (180 bytes).
     Removing usart6.o(i.fputc), (36 bytes).
+    Removing tim.o(.rev16_text), (4 bytes).
+    Removing tim.o(.revsh_text), (4 bytes).
+    Removing tim.o(.rrx_text), (6 bytes).
     Removing delay.o(i.Delay_Us), (18 bytes).
     Removing flash.o(.rev16_text), (4 bytes).
     Removing flash.o(.revsh_text), (4 bytes).
@@ -1301,12 +1301,12 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
@@ -1516,43 +1516,43 @@ Image Symbol Table
     i.SystemInit                             0x08001510   Section        0  system_stm32f4xx.o(i.SystemInit)
     i.TIM6_Configuration                     0x0800156c   Section        0  tim.o(i.TIM6_Configuration)
     i.TIM6_DAC_IRQHandler                    0x080015b4   Section        0  tim.o(i.TIM6_DAC_IRQHandler)
-    i.TIM6_Start                             0x080015f4   Section        0  tim.o(i.TIM6_Start)
-    i.TIM6_Stop                              0x0800161c   Section        0  tim.o(i.TIM6_Stop)
-    i.TIM_ARRPreloadConfig                   0x0800163c   Section        0  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
-    i.TIM_ClearFlag                          0x08001650   Section        0  stm32f4xx_tim.o(i.TIM_ClearFlag)
-    i.TIM_ClearITPendingBit                  0x08001656   Section        0  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
-    i.TIM_Cmd                                0x0800165c   Section        0  stm32f4xx_tim.o(i.TIM_Cmd)
-    i.TIM_GetITStatus                        0x08001670   Section        0  stm32f4xx_tim.o(i.TIM_GetITStatus)
-    i.TIM_ITConfig                           0x08001688   Section        0  stm32f4xx_tim.o(i.TIM_ITConfig)
-    i.TIM_OC1Init                            0x08001698   Section        0  stm32f4xx_tim.o(i.TIM_OC1Init)
-    i.TIM_OC1PreloadConfig                   0x080016f8   Section        0  stm32f4xx_tim.o(i.TIM_OC1PreloadConfig)
-    i.TIM_TimeBaseInit                       0x08001704   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
-    i.USART2_Configuration                   0x08001780   Section        0  usart2.o(i.USART2_Configuration)
-    i.USART2_IRQHandler                      0x0800182c   Section        0  usart2.o(i.USART2_IRQHandler)
-    i.USART3_Configuration                   0x0800197c   Section        0  usart3.o(i.USART3_Configuration)
-    i.USART3_IRQHandler                      0x08001a2c   Section        0  usart3.o(i.USART3_IRQHandler)
-    i.USART3_send_byte                       0x08001aa4   Section        0  usart3.o(i.USART3_send_byte)
-    i.USART6_IRQHandler                      0x08001ac4   Section        0  usart6.o(i.USART6_IRQHandler)
-    i.USART_Cmd                              0x08001af8   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
-    i.USART_GetFlagStatus                    0x08001b0c   Section        0  stm32f4xx_usart.o(i.USART_GetFlagStatus)
-    i.USART_GetITStatus                      0x08001b1a   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x08001b58   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x08001b88   Section        0  stm32f4xx_usart.o(i.USART_Init)
-    i.USART_ReceiveData                      0x08001c34   Section        0  stm32f4xx_usart.o(i.USART_ReceiveData)
-    i.USART_Send                             0x08001c3c   Section        0  usart3.o(i.USART_Send)
-    i.UsageFault_Handler                     0x08001c70   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
-    i.__scatterload_copy                     0x08001c72   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08001c80   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08001c82   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x08001c90   Section        0  main.o(i.main)
-    i.send_com                               0x08001d60   Section        0  usart3.o(i.send_com)
-    .constdata                               0x08001d80   Section       56  beep.o(.constdata)
-    .constdata                               0x08001db8   Section        3  usart3.o(.constdata)
+    i.TIM6_Start                             0x080015f0   Section        0  tim.o(i.TIM6_Start)
+    i.TIM6_Stop                              0x08001618   Section        0  tim.o(i.TIM6_Stop)
+    i.TIM_ARRPreloadConfig                   0x08001638   Section        0  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
+    i.TIM_ClearFlag                          0x0800164c   Section        0  stm32f4xx_tim.o(i.TIM_ClearFlag)
+    i.TIM_ClearITPendingBit                  0x08001652   Section        0  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
+    i.TIM_Cmd                                0x08001658   Section        0  stm32f4xx_tim.o(i.TIM_Cmd)
+    i.TIM_GetITStatus                        0x0800166c   Section        0  stm32f4xx_tim.o(i.TIM_GetITStatus)
+    i.TIM_ITConfig                           0x08001684   Section        0  stm32f4xx_tim.o(i.TIM_ITConfig)
+    i.TIM_OC1Init                            0x08001694   Section        0  stm32f4xx_tim.o(i.TIM_OC1Init)
+    i.TIM_OC1PreloadConfig                   0x080016f4   Section        0  stm32f4xx_tim.o(i.TIM_OC1PreloadConfig)
+    i.TIM_TimeBaseInit                       0x08001700   Section        0  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
+    i.USART2_Configuration                   0x0800177c   Section        0  usart2.o(i.USART2_Configuration)
+    i.USART2_IRQHandler                      0x08001828   Section        0  usart2.o(i.USART2_IRQHandler)
+    i.USART3_Configuration                   0x08001978   Section        0  usart3.o(i.USART3_Configuration)
+    i.USART3_IRQHandler                      0x08001a28   Section        0  usart3.o(i.USART3_IRQHandler)
+    i.USART3_send_byte                       0x08001a98   Section        0  usart3.o(i.USART3_send_byte)
+    i.USART6_IRQHandler                      0x08001ab8   Section        0  usart6.o(i.USART6_IRQHandler)
+    i.USART_Cmd                              0x08001aec   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
+    i.USART_GetFlagStatus                    0x08001b00   Section        0  stm32f4xx_usart.o(i.USART_GetFlagStatus)
+    i.USART_GetITStatus                      0x08001b0e   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08001b4c   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08001b7c   Section        0  stm32f4xx_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x08001c28   Section        0  stm32f4xx_usart.o(i.USART_ReceiveData)
+    i.USART_Send                             0x08001c30   Section        0  usart3.o(i.USART_Send)
+    i.UsageFault_Handler                     0x08001c64   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
+    i.__scatterload_copy                     0x08001c66   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08001c74   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08001c76   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x08001c84   Section        0  main.o(i.main)
+    i.send_com                               0x08001d54   Section        0  usart3.o(i.send_com)
+    .constdata                               0x08001d74   Section       56  beep.o(.constdata)
+    .constdata                               0x08001dac   Section        3  usart3.o(.constdata)
     .data                                    0x20000000   Section       16  can2.o(.data)
     .data                                    0x20000010   Section        1  usart2.o(.data)
     i                                        0x20000010   Data           1  usart2.o(.data)
     .data                                    0x20000014   Section       16  usart3.o(.data)
-    i                                        0x20000015   Data           1  usart3.o(.data)
+    i                                        0x20000014   Data           1  usart3.o(.data)
     .data                                    0x20000024   Section        1  usart6.o(.data)
     i                                        0x20000024   Data           1  usart6.o(.data)
     .data                                    0x20000025   Section       16  stm32f4xx_rcc.o(.data)
@@ -1736,45 +1736,44 @@ Image Symbol Table
     SysTick_Handler                          0x0800150d   Thumb Code     2  main.o(i.SysTick_Handler)
     SystemInit                               0x08001511   Thumb Code    74  system_stm32f4xx.o(i.SystemInit)
     TIM6_Configuration                       0x0800156d   Thumb Code    68  tim.o(i.TIM6_Configuration)
-    TIM6_DAC_IRQHandler                      0x080015b5   Thumb Code    56  tim.o(i.TIM6_DAC_IRQHandler)
-    TIM6_Start                               0x080015f5   Thumb Code    34  tim.o(i.TIM6_Start)
-    TIM6_Stop                                0x0800161d   Thumb Code    26  tim.o(i.TIM6_Stop)
-    TIM_ARRPreloadConfig                     0x0800163d   Thumb Code    20  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
-    TIM_ClearFlag                            0x08001651   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearFlag)
-    TIM_ClearITPendingBit                    0x08001657   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
-    TIM_Cmd                                  0x0800165d   Thumb Code    20  stm32f4xx_tim.o(i.TIM_Cmd)
-    TIM_GetITStatus                          0x08001671   Thumb Code    24  stm32f4xx_tim.o(i.TIM_GetITStatus)
-    TIM_ITConfig                             0x08001689   Thumb Code    16  stm32f4xx_tim.o(i.TIM_ITConfig)
-    TIM_OC1Init                              0x08001699   Thumb Code    88  stm32f4xx_tim.o(i.TIM_OC1Init)
-    TIM_OC1PreloadConfig                     0x080016f9   Thumb Code    12  stm32f4xx_tim.o(i.TIM_OC1PreloadConfig)
-    TIM_TimeBaseInit                         0x08001705   Thumb Code    96  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
-    USART2_Configuration                     0x08001781   Thumb Code   164  usart2.o(i.USART2_Configuration)
-    USART2_IRQHandler                        0x0800182d   Thumb Code   310  usart2.o(i.USART2_IRQHandler)
-    USART3_Configuration                     0x0800197d   Thumb Code   166  usart3.o(i.USART3_Configuration)
-    USART3_IRQHandler                        0x08001a2d   Thumb Code   108  usart3.o(i.USART3_IRQHandler)
-    USART3_send_byte                         0x08001aa5   Thumb Code    26  usart3.o(i.USART3_send_byte)
-    USART6_IRQHandler                        0x08001ac5   Thumb Code    38  usart6.o(i.USART6_IRQHandler)
-    USART_Cmd                                0x08001af9   Thumb Code    20  stm32f4xx_usart.o(i.USART_Cmd)
-    USART_GetFlagStatus                      0x08001b0d   Thumb Code    14  stm32f4xx_usart.o(i.USART_GetFlagStatus)
-    USART_GetITStatus                        0x08001b1b   Thumb Code    62  stm32f4xx_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x08001b59   Thumb Code    48  stm32f4xx_usart.o(i.USART_ITConfig)
-    USART_Init                               0x08001b89   Thumb Code   164  stm32f4xx_usart.o(i.USART_Init)
-    USART_ReceiveData                        0x08001c35   Thumb Code     8  stm32f4xx_usart.o(i.USART_ReceiveData)
-    USART_Send                               0x08001c3d   Thumb Code    52  usart3.o(i.USART_Send)
-    UsageFault_Handler                       0x08001c71   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
-    __scatterload_copy                       0x08001c73   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08001c81   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08001c83   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x08001c91   Thumb Code   178  main.o(i.main)
-    send_com                                 0x08001d61   Thumb Code    28  usart3.o(i.send_com)
-    tone_tab                                 0x08001d80   Data          42  beep.o(.constdata)
-    Mavic_Startup_music                      0x08001daa   Data          14  beep.o(.constdata)
-    Region$$Table$$Base                      0x08001dbc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001ddc   Number         0  anon$$obj.o(Region$$Table)
+    TIM6_DAC_IRQHandler                      0x080015b5   Thumb Code    52  tim.o(i.TIM6_DAC_IRQHandler)
+    TIM6_Start                               0x080015f1   Thumb Code    34  tim.o(i.TIM6_Start)
+    TIM6_Stop                                0x08001619   Thumb Code    26  tim.o(i.TIM6_Stop)
+    TIM_ARRPreloadConfig                     0x08001639   Thumb Code    20  stm32f4xx_tim.o(i.TIM_ARRPreloadConfig)
+    TIM_ClearFlag                            0x0800164d   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearFlag)
+    TIM_ClearITPendingBit                    0x08001653   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
+    TIM_Cmd                                  0x08001659   Thumb Code    20  stm32f4xx_tim.o(i.TIM_Cmd)
+    TIM_GetITStatus                          0x0800166d   Thumb Code    24  stm32f4xx_tim.o(i.TIM_GetITStatus)
+    TIM_ITConfig                             0x08001685   Thumb Code    16  stm32f4xx_tim.o(i.TIM_ITConfig)
+    TIM_OC1Init                              0x08001695   Thumb Code    88  stm32f4xx_tim.o(i.TIM_OC1Init)
+    TIM_OC1PreloadConfig                     0x080016f5   Thumb Code    12  stm32f4xx_tim.o(i.TIM_OC1PreloadConfig)
+    TIM_TimeBaseInit                         0x08001701   Thumb Code    96  stm32f4xx_tim.o(i.TIM_TimeBaseInit)
+    USART2_Configuration                     0x0800177d   Thumb Code   164  usart2.o(i.USART2_Configuration)
+    USART2_IRQHandler                        0x08001829   Thumb Code   310  usart2.o(i.USART2_IRQHandler)
+    USART3_Configuration                     0x08001979   Thumb Code   166  usart3.o(i.USART3_Configuration)
+    USART3_IRQHandler                        0x08001a29   Thumb Code   100  usart3.o(i.USART3_IRQHandler)
+    USART3_send_byte                         0x08001a99   Thumb Code    26  usart3.o(i.USART3_send_byte)
+    USART6_IRQHandler                        0x08001ab9   Thumb Code    38  usart6.o(i.USART6_IRQHandler)
+    USART_Cmd                                0x08001aed   Thumb Code    20  stm32f4xx_usart.o(i.USART_Cmd)
+    USART_GetFlagStatus                      0x08001b01   Thumb Code    14  stm32f4xx_usart.o(i.USART_GetFlagStatus)
+    USART_GetITStatus                        0x08001b0f   Thumb Code    62  stm32f4xx_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08001b4d   Thumb Code    48  stm32f4xx_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08001b7d   Thumb Code   164  stm32f4xx_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x08001c29   Thumb Code     8  stm32f4xx_usart.o(i.USART_ReceiveData)
+    USART_Send                               0x08001c31   Thumb Code    52  usart3.o(i.USART_Send)
+    UsageFault_Handler                       0x08001c65   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
+    __scatterload_copy                       0x08001c67   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08001c75   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08001c77   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x08001c85   Thumb Code   178  main.o(i.main)
+    send_com                                 0x08001d55   Thumb Code    28  usart3.o(i.send_com)
+    tone_tab                                 0x08001d74   Data          42  beep.o(.constdata)
+    Mavic_Startup_music                      0x08001d9e   Data          14  beep.o(.constdata)
+    Region$$Table$$Base                      0x08001db0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001dd0   Number         0  anon$$obj.o(Region$$Table)
     i                                        0x20000000   Data           4  can2.o(.data)
     CarDirectionAngel                        0x20000004   Data           4  can2.o(.data)
     Angel                                    0x20000008   Data           8  can2.o(.data)
-    InfraredReceived                         0x20000014   Data           1  usart3.o(.data)
     InfraredDistance                         0x20000018   Data           4  usart3.o(.data)
     InfraredReceivedBuf                      0x2000001c   Data           8  usart3.o(.data)
     PID_Speed                                0x20000038   Data         160  main.o(.bss)
@@ -1797,9 +1796,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001ad
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001e14, Max: 0x00200000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001e08, Max: 0x00200000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001ddc, Max: 0x00200000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00001dd0, Max: 0x00200000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1878,42 +1877,42 @@ Memory Map of the image
     0x0800150c   0x00000002   Code   RO            4    i.SysTick_Handler   main.o
     0x0800150e   0x00000002   PAD
     0x08001510   0x0000005c   Code   RO         5861    i.SystemInit        system_stm32f4xx.o
-    0x0800156c   0x00000048   Code   RO          481    i.TIM6_Configuration  tim.o
-    0x080015b4   0x00000040   Code   RO          482    i.TIM6_DAC_IRQHandler  tim.o
-    0x080015f4   0x00000028   Code   RO          483    i.TIM6_Start        tim.o
-    0x0800161c   0x00000020   Code   RO          484    i.TIM6_Stop         tim.o
-    0x0800163c   0x00000014   Code   RO         5049    i.TIM_ARRPreloadConfig  stm32f4xx_tim.o
-    0x08001650   0x00000006   Code   RO         5055    i.TIM_ClearFlag     stm32f4xx_tim.o
-    0x08001656   0x00000006   Code   RO         5056    i.TIM_ClearITPendingBit  stm32f4xx_tim.o
-    0x0800165c   0x00000014   Code   RO         5061    i.TIM_Cmd           stm32f4xx_tim.o
-    0x08001670   0x00000018   Code   RO         5082    i.TIM_GetITStatus   stm32f4xx_tim.o
-    0x08001688   0x00000010   Code   RO         5086    i.TIM_ITConfig      stm32f4xx_tim.o
-    0x08001698   0x00000060   Code   RO         5090    i.TIM_OC1Init       stm32f4xx_tim.o
-    0x080016f8   0x0000000c   Code   RO         5093    i.TIM_OC1PreloadConfig  stm32f4xx_tim.o
-    0x08001704   0x0000007c   Code   RO         5133    i.TIM_TimeBaseInit  stm32f4xx_tim.o
-    0x08001780   0x000000ac   Code   RO          383    i.USART2_Configuration  usart2.o
-    0x0800182c   0x00000150   Code   RO          384    i.USART2_IRQHandler  usart2.o
-    0x0800197c   0x000000b0   Code   RO          421    i.USART3_Configuration  usart3.o
-    0x08001a2c   0x00000078   Code   RO          422    i.USART3_IRQHandler  usart3.o
-    0x08001aa4   0x00000020   Code   RO          423    i.USART3_send_byte  usart3.o
-    0x08001ac4   0x00000034   Code   RO          524    i.USART6_IRQHandler  usart6.o
-    0x08001af8   0x00000014   Code   RO         5602    i.USART_Cmd         stm32f4xx_usart.o
-    0x08001b0c   0x0000000e   Code   RO         5605    i.USART_GetFlagStatus  stm32f4xx_usart.o
-    0x08001b1a   0x0000003e   Code   RO         5606    i.USART_GetITStatus  stm32f4xx_usart.o
-    0x08001b58   0x00000030   Code   RO         5608    i.USART_ITConfig    stm32f4xx_usart.o
-    0x08001b88   0x000000ac   Code   RO         5609    i.USART_Init        stm32f4xx_usart.o
-    0x08001c34   0x00000008   Code   RO         5616    i.USART_ReceiveData  stm32f4xx_usart.o
-    0x08001c3c   0x00000034   Code   RO          424    i.USART_Send        usart3.o
-    0x08001c70   0x00000002   Code   RO          165    i.UsageFault_Handler  stm32f4xx_it.o
-    0x08001c72   0x0000000e   Code   RO         5942    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001c80   0x00000002   Code   RO         5943    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001c82   0x0000000e   Code   RO         5944    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08001c90   0x000000d0   Code   RO            5    i.main              main.o
-    0x08001d60   0x00000020   Code   RO          425    i.send_com          usart3.o
-    0x08001d80   0x00000038   Data   RO          315    .constdata          beep.o
-    0x08001db8   0x00000003   Data   RO          427    .constdata          usart3.o
-    0x08001dbb   0x00000001   PAD
-    0x08001dbc   0x00000020   Data   RO         5940    Region$$Table       anon$$obj.o
+    0x0800156c   0x00000048   Code   RO          519    i.TIM6_Configuration  tim.o
+    0x080015b4   0x0000003c   Code   RO          520    i.TIM6_DAC_IRQHandler  tim.o
+    0x080015f0   0x00000028   Code   RO          521    i.TIM6_Start        tim.o
+    0x08001618   0x00000020   Code   RO          522    i.TIM6_Stop         tim.o
+    0x08001638   0x00000014   Code   RO         5049    i.TIM_ARRPreloadConfig  stm32f4xx_tim.o
+    0x0800164c   0x00000006   Code   RO         5055    i.TIM_ClearFlag     stm32f4xx_tim.o
+    0x08001652   0x00000006   Code   RO         5056    i.TIM_ClearITPendingBit  stm32f4xx_tim.o
+    0x08001658   0x00000014   Code   RO         5061    i.TIM_Cmd           stm32f4xx_tim.o
+    0x0800166c   0x00000018   Code   RO         5082    i.TIM_GetITStatus   stm32f4xx_tim.o
+    0x08001684   0x00000010   Code   RO         5086    i.TIM_ITConfig      stm32f4xx_tim.o
+    0x08001694   0x00000060   Code   RO         5090    i.TIM_OC1Init       stm32f4xx_tim.o
+    0x080016f4   0x0000000c   Code   RO         5093    i.TIM_OC1PreloadConfig  stm32f4xx_tim.o
+    0x08001700   0x0000007c   Code   RO         5133    i.TIM_TimeBaseInit  stm32f4xx_tim.o
+    0x0800177c   0x000000ac   Code   RO          383    i.USART2_Configuration  usart2.o
+    0x08001828   0x00000150   Code   RO          384    i.USART2_IRQHandler  usart2.o
+    0x08001978   0x000000b0   Code   RO          421    i.USART3_Configuration  usart3.o
+    0x08001a28   0x00000070   Code   RO          422    i.USART3_IRQHandler  usart3.o
+    0x08001a98   0x00000020   Code   RO          423    i.USART3_send_byte  usart3.o
+    0x08001ab8   0x00000034   Code   RO          482    i.USART6_IRQHandler  usart6.o
+    0x08001aec   0x00000014   Code   RO         5602    i.USART_Cmd         stm32f4xx_usart.o
+    0x08001b00   0x0000000e   Code   RO         5605    i.USART_GetFlagStatus  stm32f4xx_usart.o
+    0x08001b0e   0x0000003e   Code   RO         5606    i.USART_GetITStatus  stm32f4xx_usart.o
+    0x08001b4c   0x00000030   Code   RO         5608    i.USART_ITConfig    stm32f4xx_usart.o
+    0x08001b7c   0x000000ac   Code   RO         5609    i.USART_Init        stm32f4xx_usart.o
+    0x08001c28   0x00000008   Code   RO         5616    i.USART_ReceiveData  stm32f4xx_usart.o
+    0x08001c30   0x00000034   Code   RO          424    i.USART_Send        usart3.o
+    0x08001c64   0x00000002   Code   RO          165    i.UsageFault_Handler  stm32f4xx_it.o
+    0x08001c66   0x0000000e   Code   RO         5942    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08001c74   0x00000002   Code   RO         5943    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001c76   0x0000000e   Code   RO         5944    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08001c84   0x000000d0   Code   RO            5    i.main              main.o
+    0x08001d54   0x00000020   Code   RO          425    i.send_com          usart3.o
+    0x08001d74   0x00000038   Data   RO          315    .constdata          beep.o
+    0x08001dac   0x00000003   Data   RO          427    .constdata          usart3.o
+    0x08001daf   0x00000001   PAD
+    0x08001db0   0x00000020   Data   RO         5940    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000600, Max: 0x00030000, ABSOLUTE)
@@ -1924,7 +1923,7 @@ Memory Map of the image
     0x20000010   0x00000001   Data   RW          386    .data               usart2.o
     0x20000011   0x00000003   PAD
     0x20000014   0x00000010   Data   RW          428    .data               usart3.o
-    0x20000024   0x00000001   Data   RW          527    .data               usart6.o
+    0x20000024   0x00000001   Data   RW          485    .data               usart6.o
     0x20000025   0x00000010   Data   RW         3705    .data               stm32f4xx_rcc.o
     0x20000035   0x00000003   PAD
     0x20000038   0x00000130   Zero   RW            6    .bss                main.o
@@ -1933,7 +1932,7 @@ Memory Map of the image
     0x20000188   0x00000020   Zero   RW          234    .bss                can1.o
     0x200001a8   0x00000030   Zero   RW          385    .bss                usart2.o
     0x200001d8   0x00000014   Zero   RW          426    .bss                usart3.o
-    0x200001ec   0x00000014   Zero   RW          526    .bss                usart6.o
+    0x200001ec   0x00000014   Zero   RW          484    .bss                usart6.o
     0x20000200   0x00000400   Zero   RW         5897    STACK               startup_stm32f427xx.o
 
 
@@ -1961,13 +1960,13 @@ Image component sizes
        324         36          0          0          0       7641   stm32f4xx_tim.o
        324          8          0          0          0       5304   stm32f4xx_usart.o
        300         36          0          0          0       1661   system_stm32f4xx.o
-       208         24          0          0          0       2120   tim.o
+       204         24          0          0          0       2148   tim.o
        508         34          0          1         48       2038   usart2.o
-       428         32          3         16         20       4304   usart3.o
+       420         32          3         16         20       4243   usart3.o
         52         14          0          1         20        556   usart6.o
 
     ----------------------------------------------------------------------
-      6334        464        520         56       1480     396107   Object Totals
+      6322        464        520         56       1480     396074   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         12          0          1          6          0          0   (incl. Padding)
 
@@ -2016,15 +2015,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7124        480        520         56       1480     390231   Grand Totals
-      7124        480        520         56       1480     390231   ELF Image Totals
-      7124        480        520         56          0          0   ROM Totals
+      7112        480        520         56       1480     390198   Grand Totals
+      7112        480        520         56       1480     390198   ELF Image Totals
+      7112        480        520         56          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7644 (   7.46kB)
+    Total RO  Size (Code + RO Data)                 7632 (   7.45kB)
     Total RW  Size (RW Data + ZI Data)              1536 (   1.50kB)
-    Total ROM Size (Code + RO Data + RW Data)       7700 (   7.52kB)
+    Total ROM Size (Code + RO Data + RW Data)       7688 (   7.51kB)
 
 ==============================================================================
 
