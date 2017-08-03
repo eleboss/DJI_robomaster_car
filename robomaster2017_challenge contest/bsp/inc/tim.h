@@ -6,7 +6,8 @@
 extern "C" {
 #endif
 	
-
+extern unsigned int SystickCount0,SystickCount1;
+	
 // Tick timer
 #define TICK_TIM TIM2
 #define TICK_TIM_PS 89
@@ -26,9 +27,13 @@ extern "C" {
 #define SYNC_TIM_NVIC_SUB_PRIORITY 0
 #define SYNC_TIM_IRQ_HANDLER IRQ_HANDLER(TIM6_DAC)
 
+
 void TIM6_Configuration(void);
+void TIM7_Configuration(void);
 void TIM6_Start(void);
+void TIM7_Start(void);
 void TIM6_Stop(void);
+
 
 #ifdef __cplusplus
 }

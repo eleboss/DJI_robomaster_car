@@ -20,11 +20,14 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
+#include "stm32f4xx_adc.h"
 
 #include "can1.h"
 #include "can2.h"
 #include "beep.h"
+#include "multi.h"
 #include "led.h"
+#include "utrosonic.h"
 #include "motor.h"
 #include "delay.h"
 #include "control.h"
@@ -50,6 +53,8 @@ extern ENCODER ENCODER_CAN[4];
 extern Speed SpeedSet;
 extern float SpeedSend[4];
 extern double AverageDistance;
+
+
 
 typedef struct{
 	struct

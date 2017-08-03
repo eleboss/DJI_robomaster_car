@@ -37,7 +37,7 @@ void MOTOR_Configuration(void)
 	gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOE,&gpio);
 	
-	GPIO_SetBits(GPIOA,GPIO_Pin_4);
+	//QGPIO_SetBits(GPIOA,GPIO_Pin_4);
 }
 //ÂÖ×ÓÉÏÉýÏÂ½µ  STEP:PC4,PC5  DIR:PC1,PC0
 void Wheel_Move(u32 wheel,u32 dir,u32 delay)
@@ -90,12 +90,12 @@ void Fetch_Move(u32 wheel,u32 dir,u32 delay)
 	if(dir==1)
 	{
 		GPIO_SetBits(GPIOB,GPIO_Pin_1);
-		GPIO_SetBits(GPIOB,GPIO_Pin_2);
+		GPIO_SetBits(GPIOB,GPIO_Pin_0);
 	}
 	else
 	{
 		GPIO_ResetBits(GPIOB,GPIO_Pin_1);
-		GPIO_ResetBits(GPIOB,GPIO_Pin_2);
+		GPIO_ResetBits(GPIOB,GPIO_Pin_0);
 	}
 	for(i=0;i<=wheel;i++)
 	{

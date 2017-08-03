@@ -37,9 +37,11 @@ typedef struct Speed
 	int RightSpeed_2;
 }Speed;
 
+extern int xspeed,yspeed,zspeed;
+
 void MECANUM_MOVE(Speed *Sp,int x,int y,int w);
 
-void PIDInit_Speed(PID *P);
+void PIDInit_Speed(PID *P,char i);
 void PIDInit_Position(PID *P);
 void PIDInit_YawControl(PID *P);
 void PIDInit_BodanMotor(PID *P);

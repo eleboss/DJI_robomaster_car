@@ -1,13 +1,27 @@
 #include "main.h"
-
-void PIDInit_Speed(PID *P)
+char goup=0;
+int xspeed=0,yspeed=0,zspeed=0;
+void PIDInit_Speed(PID *P,char i)
 {
-	P->P = 0.28f;
-	P->I = 0.0f;
-	P->D = 20.0f;//40
-	P->IMax = 100.0f;
-	P->SetPoint = 0.0f;
+	if(i==1)
+	{
+		P->P = 0.06f;
+		P->I = 0.0f;
+		P->D = 20.0f;//40
+		P->IMax = 100.0f;
+		P->SetPoint = 0.0f;
+	}
+	else
+	{
+		P->P = 0.20f;
+		P->I = 0.0f;
+		P->D = 0.0f;//40
+		P->IMax = 100.0f;
+		P->SetPoint = 0.0f;
+	}
+
 }
+
 
 void PIDInit_Position(PID *P)
 {
@@ -111,7 +125,31 @@ void Control_Task(void)
 	EncoderUpdate(&ENCODER_CAN[2],HG900MotorData[2].Angle);
 	EncoderUpdate(&ENCODER_CAN[3],HG900MotorData[3].Angle);
 	//速度换PID控制
-	MECANUM_MOVE(&SpeedSet,0,0,30);
+//	MECANUM_MOVE(&SpeedSet,xspeed,yspeed,zspeed);
+//	PID_Speed[0].SetPoint = -SpeedSet.RightSpeed_1*0.16;
+//	PID_Speed[1].SetPoint = SpeedSet.LeftSpeed_1*0.16;
+//	PID_Speed[2].SetPoint = SpeedSet.LeftSpeed_2*0.16;
+//	PID_Speed[3].SetPoint = -SpeedSet.RightSpeed_2*0.16;
+//	SpeedSend[0] += PIDCalc(&PID_Speed[0], ENCODER_CAN[0].DifferEncoder);
+//	SpeedSend[1] += PIDCalc(&PID_Speed[1], ENCODER_CAN[1].DifferEncoder);
+//	SpeedSend[2] += PIDCalc(&PID_Speed[2], ENCODER_CAN[2].DifferEncoder);
+//	SpeedSend[3] += PIDCalc(&PID_Speed[3], ENCODER_CAN[3].DifferEncoder);
+//	CAN1MotorSpeedSet(SpeedSend[0], SpeedSend[1], SpeedSend[2], SpeedSend[3]);
+	if(goup=1)
+	{
+			MECANUM_MOVE(&SpeedSet,xspeed,yspeed,zspeed);
+
+	PID_Speed[2].SetPoint = SpeedSet.LeftSpeed_2*0.16;
+	PID_Speed[3].SetPoint = -SpeedSet.RightSpeed_2*0.16;
+	SpeedSend[0] = 0;
+	SpeedSend[1] = 0;
+	SpeedSend[2] += PIDCalc(&PID_Speed[2], ENCODER_CAN[2].DifferEncoder);
+	SpeedSend[3] += PIDCalc(&PID_Speed[3], ENCODER_CAN[3].DifferEncoder);
+	CAN1MotorSpeedSet(SpeedSend[0], SpeedSend[1], SpeedSend[2], SpeedSend[3]);
+	}
+	else
+	{
+			MECANUM_MOVE(&SpeedSet,xspeed,yspeed,zspeed);
 	PID_Speed[0].SetPoint = -SpeedSet.RightSpeed_1*0.16;
 	PID_Speed[1].SetPoint = SpeedSet.LeftSpeed_1*0.16;
 	PID_Speed[2].SetPoint = SpeedSet.LeftSpeed_2*0.16;
@@ -121,6 +159,7 @@ void Control_Task(void)
 	SpeedSend[2] += PIDCalc(&PID_Speed[2], ENCODER_CAN[2].DifferEncoder);
 	SpeedSend[3] += PIDCalc(&PID_Speed[3], ENCODER_CAN[3].DifferEncoder);
 	CAN1MotorSpeedSet(SpeedSend[0], SpeedSend[1], SpeedSend[2], SpeedSend[3]);
+	}
 	//位置环PID控制
 //	AverageDistance=EncoderDistanceSum(&ENCODER_CAN[0],&ENCODER_CAN[1],&ENCODER_CAN[2],&ENCODER_CAN[3])/100;
 //	MECANUM_MOVE(&SpeedSet,0,PIDCalc(&PID_Position,AverageDistance),0);
